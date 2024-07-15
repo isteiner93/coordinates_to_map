@@ -30,10 +30,14 @@ def generate_google_maps_link(dms_str):
     if lon_dms[-1] == 'W':
         longitude = -longitude
 
-    return f"https://www.google.com/maps/place//@{latitude},{longitude},14z/data=!4m2!3m1!1s0x0:0x0?entry=s&sa=X"
+    # Format the latitude and longitude in DMS format for the URL
+    lat_dms_str = f"{abs(lat_parts[0])}°{abs(lat_parts[1])}'{abs(lat_parts[2]):.1f}\"{'N' if latitude >= 0 else 'S'}"
+    lon_dms_str = f"{abs(lon_parts[0])}°{abs(lon_parts[1])}'{abs(lon_parts[2]):.1f}\"{'E' if longitude >= 0 else 'W'}"
+
+    return f"https://www.google.com/maps/place/{lat_dms_str}+{lon_dms_str}/@{latitude},{longitude},14z/data=!4m4!3m3!8m2!3d{latitude}!4d{longitude}?entry=ttu"
 
 
-st.title('Trans-Carpathia Maps')
+st.title('Trans-carpathia 2024')
 
 dms_str = st.text_input('Enter DMS coordinates (e.g., 44°17\'56.5"N 16°16\'54.9"E):', '')
 
