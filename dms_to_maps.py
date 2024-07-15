@@ -33,7 +33,7 @@ def generate_google_maps_link(dms_str):
     return f"https://www.google.com/maps/place//@{latitude},{longitude},14z/data=!4m2!3m1!1s0x0:0x0?entry=s&sa=X"
 
 
-st.title('DMS to Google Maps Link Converter')
+st.title('Trans-Carpathia Maps')
 
 dms_str = st.text_input('Enter DMS coordinates (e.g., 44°17\'56.5"N 16°16\'54.9"E):', '')
 
