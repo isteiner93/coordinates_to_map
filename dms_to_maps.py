@@ -37,15 +37,30 @@ def generate_google_maps_link(dms_str):
     return f"https://www.google.com/maps/place/{lat_dms_str}+{lon_dms_str}/@{latitude},{longitude},14z/data=!4m4!3m3!8m2!3d{latitude}!4d{longitude}?entry=ttu"
 
 
+def generate_mapy_cz_link(dms_str):
+    lat_dms, lon_dms = dms_str.split(' ')
+
+    # Format the latitude and longitude in DMS format for the URL
+    lat_dms_encoded = lat_dms.replace('°', '%C2%B0').replace("'", '%27').replace('"', '%22')
+    lon_dms_encoded = lon_dms.replace('°', '%C2%B0').replace("'", '%27').replace('"', '%22')
+
+    return f"https://en.mapy.cz/zakladni?q={lat_dms_encoded}%20{lon_dms_encoded}&source=coor"
+
+
 st.title('Trans-carpathia 2024')
 
 dms_str = st.text_input('Enter DMS coordinates (e.g., 44°17\'56.5"N 16°16\'54.9"E):', '')
 
 if dms_str:
     try:
-        link = generate_google_maps_link(dms_str)
-        st.write('Google Maps Link:')
-        st.write(link)
-        st.markdown(f'[Open in Google Maps]({link})')
+        st.subheader('Google Maps Link:')
+        google_maps_link = generate_google_maps_link(dms_str)
+        st.write(google_maps_link)
+        st.markdown(f'[Open in Google Maps]({google_maps_link})')
+
+        st.subheader('mapy.cz Link:')
+        mapy_cz_link = generate_mapy_cz_link(dms_str)
+        st.write(mapy_cz_link)
+        st.markdown(f'[Open in mapy.cz]({mapy_cz_link})')
     except Exception as e:
         st.error(f"Error: {e}")
