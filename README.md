@@ -1,6 +1,7 @@
 # **Trans-carpathia 2024**
 
 This Streamlit application allows users to input geographic coordinates in Degrees, Minutes, Seconds (DMS) format and generates links to view the location on Google Maps and mapy.cz. The application is designed to simplify the process of converting DMS coordinates into a decimal format and creating accessible map links.
+![image](https://github.com/user-attachments/assets/1786cecf-c8c7-4c9e-a43f-e6689bb01401)
 
 ## **Features**
 
