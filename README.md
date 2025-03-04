@@ -10,11 +10,13 @@ This Streamlit application allows users to input geographic coordinates in Degre
 
 ## **How to Use**
 
-1. **Input Coordinates**: Enter the DMS coordinates in the following format: <tr>
-`44°17'56.5"N 16°16'54.9"E` <tr>
+1. **Input Coordinates**: Enter the DMS coordinates in the following format:
+   
+`44°17'56.5"N 16°16'54.9"E`
+
 Ensure that the coordinates are accurately formatted with degrees (°), minutes ('), and seconds (") followed by the hemisphere indicator (N, S, E, W).
 
-2. **Generate Links**: Once the coordinates are entered, the application automatically processes them and provides:
+3. **Generate Links**: Once the coordinates are entered, the application automatically processes them and provides:
 - A clickable link to view the location on Google Maps.
 - A clickable link to view the location on mapy.cz.
 
